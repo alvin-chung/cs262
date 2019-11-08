@@ -9,5 +9,8 @@ let config = {
   appId: "1:156497296267:web:782713f78a5bd6be024d8e",
   measurementId: "G-86ZPVQEMM6"
 };
-let app = Firebase.initializeApp(config);
-export const db = app.database();
+if (!Firebase.apps.length) {
+  Firebase.initializeApp(config);
+}
+
+export const db = Firebase.database();
